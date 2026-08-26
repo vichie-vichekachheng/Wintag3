@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bokor&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Great+Vibes&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&family=Share+Tech&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Roboto Slab", serif;
+}
+.swiper img{
+  width:800px;
+}
+.product-image{
+  cursor:pointer;
+}    
+
+.product-item:hover .product-image img:nth-child(2){
+  opacity:1;
+}
+.product-card {
+  transition: 0.3s ease;
+  cursor:pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-image-container {
+  height: 480px;
+}
+
+.secondary-img {
+  pointer-events: none;
+}
+
+.product-card:hover .primary-img {
+  opacity: 0;
+}
+
+.product-card:hover .secondary-img {
+  opacity: 1 !important;
+}
+
+.product-actions {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.3s ease;
+}
+
+
+.product-card:hover .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.wishlist-btn:hover {
+  background: black;
+  color: white;
+}
+
+.product-details h4 {
+  font-size: 30px;
+}
+
+.product-details h3 {
+  font-size: 26px;
+}
