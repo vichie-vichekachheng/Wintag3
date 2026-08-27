@@ -2,10 +2,11 @@ import logo from "../assets/translogo.png";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 import { useState } from "react";
-
+import { useCart } from "./CartContext";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const {totalItems} =useCart();
+  
   return (
     <nav className="navbar navbar-expand-lg bg-light top-0 position-sticky py-2" style={{zIndex:"1000"}}>
       <div className="container-fluid px-3">
@@ -45,7 +46,7 @@ export default function Navbar() {
             <Link to="/cart" className="position-relative text-decoration-none">
               <i className="bi bi-bag text-dark fs-4"></i>
               <span className="position-absolute start-100 top-0 translate-middle badge bg-dark rounded-pill">
-                0
+                
               </span>
             </Link>
             <Link to="/login" className="text-dark text-decoration-none">
@@ -94,7 +95,7 @@ export default function Navbar() {
           >
             <i className="bi bi-heart fs-3 text-dark"></i>
             <span className="position-absolute start-0 top-0 ms-3 badge bg-dark">
-              0
+            
             </span>
            
           </Link>
@@ -104,7 +105,7 @@ export default function Navbar() {
           >
             <i className="bi bi-bag text-dark fs-3 text-dark"></i>
             <span className="position-absolute start-0 top-0 ms-3 badge bg-dark">
-              0
+              {totalItems || 0}
             </span>
            
           </Link>

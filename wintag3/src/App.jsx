@@ -8,6 +8,7 @@ import Shop from './pages/Shop';
 import ProductDetails from './components/ProductDetails';
 import Footer from './components/Footer';
 import ShopItem from './components/Shopproduct';
+import Cart from './pages/cart';
 function App() {
  
 
@@ -21,6 +22,7 @@ function App() {
 
     <Route path="/product/:id" element={<ProductDetails/>}></Route>
     <Route path="/shop_product/:id" element={<ShopItem/>}></Route>
+    <Route path="/cart" element={<Cart/>}></Route>
     </Routes>
     <Footer/>
     </>

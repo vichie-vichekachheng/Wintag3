@@ -5,7 +5,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import { useCart } from "./CartContext";
 export default function ShopItem() {
+  const {addTocart} = useCart();
   const { id } = useParams();
   const Currentpro = shop_product.find((p) => p.id === Number(id));
   if (!Currentpro) {
@@ -63,12 +65,12 @@ export default function ShopItem() {
               <hr className="my-4 text-muted opacity-25" />
 
               <div className="d-flex flex-column flex-sm-row gap-3 pt-2">
-                <button className="btn btn-dark btn-lg flex-fill py-3 rounded-pill fw-semibold shadow-sm transition-all">
+                <button className="btn btn-dark btn-lg flex-fill py-3 rounded-pill fw-semibold shadow-sm transition-all" onClick={()=> addTocart(Currentpro)}>
                   <i className="bi bi-bag-plus me-2"></i> Add to Cart
                 </button>
 
                 <button className="btn btn-outline-dark btn-lg flex-fill py-3 rounded-pill fw-semibold transition-all">
-                  Buy Now
+                  Add to wishlist
                 </button>
               </div>
 
@@ -134,7 +136,7 @@ export default function ShopItem() {
                 <div className="Relatedpro-actions position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-center gap-2">
                   <button
                     className=" p-1 btn-light rounded-pill border border-0"
-                    style={{}}
+                    style={{}} onClick={()=> addTocart(item)}
                   >
                     <i className="bi bi-bag-plus me-2"></i>
                     Add to Cart

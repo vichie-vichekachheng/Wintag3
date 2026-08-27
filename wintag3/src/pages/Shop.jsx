@@ -2,8 +2,10 @@ import { useState } from "react";
 import Shopbanner from "../assets/shopbanner.png";
 import { Link } from "react-router-dom";
 import shop_product from "../data/shop";
+import { useCart } from "../components/CartContext";
 export default function Shop() {
   const [selectedBrand, setselectedBrand] = useState("All");
+  const {addTocart}= useCart()
   const filterProducts = selectedBrand==='All' ? shop_product : shop_product.filter(p=> p.brand===selectedBrand)
   return (
     <>
@@ -91,7 +93,7 @@ export default function Shop() {
 
            
             <div className="position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-center gap-2 bg-dark bg-opacity-75 backdrop-blur">
-              <button className="btn btn-warning btn-sm rounded-pill px-3 fw-bold shadow-sm d-flex align-items-center">
+              <button className="btn btn-warning btn-sm rounded-pill px-3 fw-bold shadow-sm d-flex align-items-center" onClick={()=> addTocart(item)}>
                 <i className="bi bi-bag-plus me-1"></i> Add
               </button>
 
@@ -107,7 +109,7 @@ export default function Shop() {
          
           <div className="pt-3 text-start">
             <small className="text-warning text-uppercase fw-semibold tracking-wider">
-              {item.brand || "Vintage"}
+              {item.brand}
             </small>
 
             <h5 className="fw-bold text-white mt-1 mb-2 text-truncate">

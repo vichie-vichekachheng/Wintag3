@@ -6,7 +6,9 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import Products from "../data/product";
+import { useCart } from "./CartContext";
 export default function Home() {
+  const {addTocart}=useCart()
   return (
     <>
       <div className="container-fluid d-lg-none p-0 position-relative">
@@ -62,6 +64,28 @@ export default function Home() {
           </Link>
         </div>
       </div>
+       <div className="container-fluid p-5">
+        <section class="special text-center fs-5 shadow-lg p-5" style={{lineHeight:"60px"}}>
+          <h1 className="display-3 text-uppercase">What Makes  Us So Special?</h1><br />
+
+          <p>
+            We believe great style shouldn't have to cost more. That's why we
+            offer <strong className="fs-3">25% to 75% off every day </strong>
+            on our carefully selected vintage pieces.
+          </p>
+
+          <p>
+            Discover
+            <strong> unique finds, limited pieces, and timeless styles</strong>
+            that you won't find anywhere else. We're always adding new items, so
+            there's always something exciting to discover.
+          </p>
+
+          <p>
+            <h2>Shop more. Save more. Stand out.</h2>
+          </p>
+        </section>
+      </div>
       <div className="p-5 d-flex justify-content-between align-items-center">
         <div>
           <h1 className="display-3">POPULAR THRIFTS</h1>
@@ -77,6 +101,7 @@ export default function Home() {
           </button>
         </div>
       </div>
+      
 
       <Swiper
         slidesPerView={6}
@@ -129,7 +154,7 @@ export default function Home() {
                   <div className="product-actions position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-center gap-2">
                     <button
                       className=" p-1 btn-light rounded-pill border border-0"
-                      style={{}}
+                      style={{}} onClick={()=> addTocart(product)}
                     >
                       <i className="bi bi-bag-plus me-2"></i>
                       Add to Cart
@@ -169,28 +194,7 @@ export default function Home() {
           )
         )}
       </Swiper>
-      <div className="container-fluid p-5">
-        <section class="special text-center fs-5 shadow-lg p-5" style={{lineHeight:"60px"}}>
-          <h1 className="display-3 text-uppercase">What Makes  Us So Special?</h1><br />
-
-          <p>
-            We believe great style shouldn't have to cost more. That's why we
-            offer <strong className="fs-3">25% to 75% off every day </strong>
-            on our carefully selected vintage pieces.
-          </p>
-
-          <p>
-            Discover
-            <strong> unique finds, limited pieces, and timeless styles</strong>
-            that you won't find anywhere else. We're always adding new items, so
-            there's always something exciting to discover.
-          </p>
-
-          <p>
-            <h2>Shop more. Save more. Stand out.</h2>
-          </p>
-        </section>
-      </div>
+     
     </>
   );
 }
